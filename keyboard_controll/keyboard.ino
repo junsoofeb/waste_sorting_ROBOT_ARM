@@ -49,10 +49,10 @@ void setup() {
     currentAngle[i]=INITANGLE[i];
   }
 
-  int body = currentAngle[0];
-  int left_arm = currentAngle[1];
-  int right_arm = currentAngle[2];
-  int claw = currentAngle[3];
+  int body = INITANGLE[0];
+  int left_arm = INITANGLE[1];
+  int right_arm = INITANGLE[2];
+  int claw = INITANGLE[3];
     
 
   //mysevo[0].attach(9); // 좌우회전 모터
@@ -73,8 +73,6 @@ void setup() {
 
 void loop() {
 
-  while (Serial.available() > 0) 
-  {
 
     long value = Serial.read();
     
@@ -86,7 +84,7 @@ void loop() {
         if(right_arm >= 180) 
           right_arm = 180;
         myservo[2].write(right_arm); // 오른쪽팔 모터
-        delay(1000);
+        //delay(1000);
         break;
         
       // a 누르면 몸통 왼쪽으로
@@ -95,7 +93,7 @@ void loop() {
         if(body >= 180) 
           body = 180;
         myservo[0].write(body);
-        delay(1000);
+        //delay(1000);
         break;
         
       // d 누르면 몸통 오른쪽으로
@@ -104,7 +102,7 @@ void loop() {
         if (body <= 0)
           body = 0;
         myservo[0].write(body);
-        delay(1000);
+        //delay(1000);
         break;
         
       // s 누르면 로봇팔 뒤로 
@@ -113,25 +111,25 @@ void loop() {
         if(right_arm <= 0) 
           right_arm = 0;
         myservo[2].write(right_arm); // 오른쪽팔 모터
-        delay(1000);
+        //delay(1000);
         break;
         
-      // r 누르면 팔 위로
-      case 'r':
+      // f 누르면 팔 아래로
+      case 'f':
         left_arm += 5;
         if(left_arm >= 180) 
           left_arm = 180;
         myservo[1].write(left_arm);
-        delay(1000);
+        //delay(1000);
         break;
         
-      // f 누르면 로봇팔 아래로 
-      case 'f':
+      // r 누르면 로봇팔 위로  
+      case 'r':
         left_arm -= 5;
         if(left_arm <= 0) 
           left_arm = 0;
         myservo[1].write(left_arm);
-        delay(1000);
+        //delay(1000);
         break;
         
       // g 누르면 집게 잡기
@@ -140,7 +138,7 @@ void loop() {
         if(claw >= 180)
           claw = 180;
         myservo[3].write(claw); // 집게 모터
-        delay(1000);
+        //delay(1000);
         break;
         
       case 'h':
@@ -148,9 +146,9 @@ void loop() {
         if(claw <= 0)
            claw = 0;
         myservo[3].write(claw); // 집게 모터
-        delay(1000);
+        //delay(1000);
         break;
         
     }
-  }
+ 
 } 
