@@ -27,13 +27,9 @@ while(True):
         arduino.write(b's')
         print('s')
 
-    elif key ==ord('r'):          
-        arduino.write(b'r')
-        print('r')
+    elif key ==ord('z'):          
+        arduino.write(b'z')
 
-    elif key ==ord('f'):          
-        arduino.write(b'f')
-        print('f')
 
     elif key ==ord('g'):          
         arduino.write(b'g')
