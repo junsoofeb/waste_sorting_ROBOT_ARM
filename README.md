@@ -8,7 +8,7 @@ arduino 로봇팔을 이용한 쓰레기 분리하는 프로그램 (WS_model.py,
 
 #### waste sorting test video
 
-[![youtube영상]<img width="884" alt="test" src="https://user-images.githubusercontent.com/46870741/72788373-25214900-3c75-11ea-8ba0-1607e2e961ef.png">](https://youtu.be/HzhoB2_SR_w)
+[![youtube영상]<img width="884" alt="test" src="https://user-images.githubusercontent.com/46870741/72788373-25214900-3c75-11ea-8ba0-1607e2e961ef.png">{: width="640" height="480"}](https://youtu.be/HzhoB2_SR_w)
 
 
 ## 2. 구현 환경
@@ -40,14 +40,14 @@ tensorflow object detection API에 관련된 자세한 사항은 블로그 글 �
 
 ## 5. object detection 관련 이미지
 
-![4](https://user-images.githubusercontent.com/46870741/72787225-db376380-3c72-11ea-8785-4035511e9be4.png)
+![4](https://user-images.githubusercontent.com/46870741/72787225-db376380-3c72-11ea-8785-4035511e9be4.png){: width="640" height="480"}
 
-![5](https://user-images.githubusercontent.com/46870741/72787227-db376380-3c72-11ea-80f0-038f8409fae4.png)
+![5](https://user-images.githubusercontent.com/46870741/72787227-db376380-3c72-11ea-80f0-038f8409fae4.png){: width="640" height="480"}
 
-![6](https://user-images.githubusercontent.com/46870741/72787229-dbcffa00-3c72-11ea-8cf8-97e77ba82493.png)
+![6](https://user-images.githubusercontent.com/46870741/72787229-dbcffa00-3c72-11ea-8cf8-97e77ba82493.png){: width="640" height="480"}
 
-![7](https://user-images.githubusercontent.com/46870741/72787230-dbcffa00-3c72-11ea-80b5-4ba43e6afd51.png)
+![7](https://user-images.githubusercontent.com/46870741/72787230-dbcffa00-3c72-11ea-80b5-4ba43e6afd51.png){: width="640" height="480"}
 
-![11](https://user-images.githubusercontent.com/46870741/72787231-dbcffa00-3c72-11ea-8ada-29cbec23016a.png)
+![11](https://user-images.githubusercontent.com/46870741/72787231-dbcffa00-3c72-11ea-8ada-29cbec23016a.png){: width="640" height="480"}
 
-![22](https://user-images.githubusercontent.com/46870741/72787232-dbcffa00-3c72-11ea-9c0b-36669721ec2b.png)
+![22](https://user-images.githubusercontent.com/46870741/72787232-dbcffa00-3c72-11ea-9c0b-36669721ec2b.png){: width="640" height="480"}
