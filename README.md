@@ -8,7 +8,7 @@ arduino 로봇팔을 이용한 쓰레기 분리하는 프로그램 (WS_model.py,
 
 #### waste sorting test video
 
-[![youtube영상](<img width="884" alt="a" src="https://user-images.githubusercontent.com/46870741/72787236-decaea80-3c72-11ea-9c5a-e8e27f82fe32.png">)(https://youtu.be/HzhoB2_SR_w)
+[![youtube영상](<img width="884" alt="test" src="https://user-images.githubusercontent.com/46870741/72788373-25214900-3c75-11ea-8ba0-1607e2e961ef.png">(https://youtu.be/HzhoB2_SR_w)
 
 
 ## 2. 구현 환경
@@ -25,9 +25,9 @@ arduino 로봇팔을 이용한 쓰레기 분리하는 프로그램 (WS_model.py,
 labelImg를 이용해 annotation을 만들고, tensorflow object detection API를 써서 1시간가량 학습시켰다.
 
 tensorflow object detection API에 관련된 자세한 사항은 블로그 글 참고.  
-<https://junsoofeb.github.io/posts/od1/>
-<https://junsoofeb.github.io/posts/od2/>
-<https://junsoofeb.github.io/posts/od3/>
+<https://junsoofeb.github.io/posts/od1/>   
+<https://junsoofeb.github.io/posts/od2/>  
+<https://junsoofeb.github.io/posts/od3/>  
 
 ## 4. WS_model.py  동작 과정
 
