@@ -8,7 +8,7 @@ arduino 로봇팔을 이용한 쓰레기 분리하는 프로그램 (WS_model.py,
 
 #### waste sorting test video
 
-[![youtube영상]<img width="884" alt="test" src="https://user-images.githubusercontent.com/46870741/72788373-25214900-3c75-11ea-8ba0-1607e2e961ef.png">{: width="640" height="480"}](https://youtu.be/HzhoB2_SR_w)
+[![youtube영상]<img width="884" alt="test" src="https://user-images.githubusercontent.com/46870741/72788373-25214900-3c75-11ea-8ba0-1607e2e961ef.png">](https://youtu.be/HzhoB2_SR_w)
 
 
 ## 2. 구현 환경
@@ -21,15 +21,17 @@ arduino 로봇팔을 이용한 쓰레기 분리하는 프로그램 (WS_model.py,
 
 ## 3. training data, test data 및 학습과정
 
-분리수거 모델을 위해서 약 600장의 training data와 약 60장의 test data가 사용되었다.  
-labelImg를 이용해 annotation을 만들고, tensorflow object detection API를 써서 1시간가량 학습시켰다.
+분리수거 모델을 위해서 각 label당 200여 장 씩, 약 600장의 training data와 약 60장의 test data가 사용.  
+labelImg를 이용해 annotation을 만들고, tensorflow object detection API를 써서 1시간가량 학습.
 
-tensorflow object detection API에 관련된 자세한 사항은 블로그 글 참고.  
+tensorflow object detection API 사용법 및 학습 관련된 자세한 사항은 블로그 글 참고.  
 <https://junsoofeb.github.io/posts/od1/>   
 <https://junsoofeb.github.io/posts/od2/>  
 <https://junsoofeb.github.io/posts/od3/>  
 
 ## 4. WS_model.py  동작 과정
+
+### WS_model은 입력 이미지에서 can, pet, vinyl 3가지 label을 detection.
 
 1) 사용자가 재활용 쓰레기가 잘 잡히도록 카메라의 위치를 설정한다.    
 2) 자동 동작방식(mog2 알고리즘 사용) 또는  수동 동작방식을 선택한다.( 코드 상에서 주석처리! )   
@@ -40,14 +42,14 @@ tensorflow object detection API에 관련된 자세한 사항은 블로그 글 �
 
 ## 5. object detection 관련 이미지
 
-![4](https://user-images.githubusercontent.com/46870741/72787225-db376380-3c72-11ea-8785-4035511e9be4.png){: width="640" height="480"}
+![4](https://user-images.githubusercontent.com/46870741/72787225-db376380-3c72-11ea-8785-4035511e9be4.png)
 
-![5](https://user-images.githubusercontent.com/46870741/72787227-db376380-3c72-11ea-80f0-038f8409fae4.png){: width="640" height="480"}
+![5](https://user-images.githubusercontent.com/46870741/72787227-db376380-3c72-11ea-80f0-038f8409fae4.png)
 
-![6](https://user-images.githubusercontent.com/46870741/72787229-dbcffa00-3c72-11ea-8cf8-97e77ba82493.png){: width="640" height="480"}
+![6](https://user-images.githubusercontent.com/46870741/72787229-dbcffa00-3c72-11ea-8cf8-97e77ba82493.png)
 
-![7](https://user-images.githubusercontent.com/46870741/72787230-dbcffa00-3c72-11ea-80b5-4ba43e6afd51.png){: width="640" height="480"}
+![7](https://user-images.githubusercontent.com/46870741/72787230-dbcffa00-3c72-11ea-80b5-4ba43e6afd51.png)
 
-![11](https://user-images.githubusercontent.com/46870741/72787231-dbcffa00-3c72-11ea-8ada-29cbec23016a.png){: width="640" height="480"}
+![11](https://user-images.githubusercontent.com/46870741/72787231-dbcffa00-3c72-11ea-8ada-29cbec23016a.png)
 
-![22](https://user-images.githubusercontent.com/46870741/72787232-dbcffa00-3c72-11ea-9c0b-36669721ec2b.png){: width="640" height="480"}
+![22](https://user-images.githubusercontent.com/46870741/72787232-dbcffa00-3c72-11ea-9c0b-36669721ec2b.png)
