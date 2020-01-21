@@ -8,7 +8,7 @@ arduino 로봇팔을 이용한 쓰레기 분리하는 프로그램 (WS_model.py,
 
 #### waste sorting test video
 
-[![youtube영상](<img width="884" alt="test" src="https://user-images.githubusercontent.com/46870741/72788373-25214900-3c75-11ea-8ba0-1607e2e961ef.png">(https://youtu.be/HzhoB2_SR_w)
+[![youtube영상](<img width="884" alt="test" src="https://user-images.githubusercontent.com/46870741/72788373-25214900-3c75-11ea-8ba0-1607e2e961ef.png">)](https://youtu.be/HzhoB2_SR_w)
 
 
 ## 2. 구현 환경
