@@ -15,6 +15,9 @@ arduino = serial.Serial('/dev/ttyUSB0', 9600)
 # opencv videocap num
 CAM = 0
 
+# Label
+Label = None
+
 # frozen_inference_graph의 경로
 PATH_TO_CKPT = '/home/junsoofeb/py_project/robot_arm/waste_sorting/frozen_inference_graph.pb'
 
@@ -47,6 +50,7 @@ def show(image, win_name = ""):
 
 
 def detect_objects(image_np, sess, detection_graph):
+    global Label
     # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
     image_np_expanded = np.expand_dims(image_np, axis=0)
     image_tensor = detection_graph.get_tensor_by_name('image_tensor:0')
@@ -60,6 +64,7 @@ def detect_objects(image_np, sess, detection_graph):
     # Actual detection.
     (boxes, scores, classes, num_detections) = sess.run([boxes, scores, classes, num_detections], feed_dict={image_tensor: image_np_expanded})
 
+
    
     # Visualization of the results of a detection.
     vis_util.visualize_boxes_and_labels_on_image_array(
@@ -71,7 +76,15 @@ def detect_objects(image_np, sess, detection_graph):
         use_normalized_coordinates=True,
         line_thickness=8)
     
-
+    
+    # 찾은 레이블 저장, 못찾았을 시 재시도
+    Label = [category_index.get(value) for index,value in enumerate(classes[0]) if scores[0,index] > 0.5]
+    if Label == []:
+        print("retry!")
+        main()
+    print(Label)
+    Label = Label[0]['name']
+    
     return image_np
 
 def load_image_into_numpy_array(image):
@@ -102,7 +115,7 @@ def check_target():
                 image_np = load_image_into_numpy_array(image)
                 image_process = detect_objects(image_np, sess, detection_graph)
                 
-                show(image_process)
+                #show(image_process)
                 
                 image_np_expanded = np.expand_dims(image_np, axis=0)
                 image_tensor = detection_graph.get_tensor_by_name('image_tensor:0')
@@ -116,13 +129,7 @@ def check_target():
 
 
 
-            
-                #print([category_index.get(i) for i in classes[0]])
-                LABEL = [category_index.get(i) for i in classes[0]][0]['name']
-                #print(LABEL)
-            
-
-    return LABEL
+ 
     
 '''
     with detection_graph.as_default():
@@ -157,7 +164,8 @@ def take_target():
     global target_img, CAM
     cap = cv.VideoCapture(CAM)
     ret, frame = cap.read()
-    target_img = frame.copy()[100: 380, 140:500]
+    #target_img = frame.copy()[50: 380, 90:500] #test용도
+    target_img = frame.copy()
     cv.imwrite('/home/junsoofeb/py_project/robot_arm/waste_sorting/test_img/target.jpg', target_img)
     cap.release()
     cv.destroyAllWindows()
@@ -231,7 +239,7 @@ def set_cam_postition():
     cap = cv.VideoCapture(CAM)
     while True: # motion detection
         _, frame = cap.read()
-        cv.rectangle(frame, (140,100), (500,380), (0,0,255), 3)
+        #cv.rectangle(frame, (90,50), (500,380), (0,0,255), 3) #test용도
         cv.imshow("PRESS 's' to set camera position!", frame)
         key = cv.waitKey(1)
         
@@ -243,7 +251,7 @@ def set_cam_postition():
 
 start_sig = True
 def main():
-    global target_img, LABEL, start_sig
+    global target_img, Label, start_sig
 
     # 자동 모드
     '''
@@ -254,12 +262,16 @@ def main():
     '''
     
     # 수동 모드
+    
     set_cam_postition()
     take_target()
     
-    label = check_target()
-    result = waste_sorting(label)
-    print("DETECTION RESULT >>", label)
+    
+    # waste sorting
+    check_target()
+    result = waste_sorting(Label)
+        
+    print("DETECTION RESULT >>", Label)
     if result == -1:
         print("object detection failed.. retry..")
     else:
