@@ -13,6 +13,17 @@ arduino 로봇팔을 이용한 쓰레기 분리하는 프로그램 (WS_model.py,
 
 ## 2. 구현 환경
 
+## 주요 H/W 
+
+1. 아두이노 UNO  
+2. 아두이노 UNO용 서보 IO 확장 보드  
+3. SNAM 1900 (로봇팔 frame 및 서보모터)  
+
+로봇팔 출처 및 조립은 아래 링크 참조  
+<https://smallhammer.cc/docs/snam50
+
+## 주요 S/W
+
 1) ubuntu 18.04
 2) Python 3.6
 3) OpenCV-python 4.2.0
